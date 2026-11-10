@@ -13,7 +13,7 @@ let
         // {
           volume = name;
           owner = null;
-          inherit (v) hideMounts;
+          inherit (v) hideMounts trash;
         }
       ) v.entries
     ) (withPath config.keep)
@@ -32,7 +32,7 @@ let
               volume = name;
               owner = user;
               live = "${ucfg.home.homeDirectory}/${e.live}";
-              inherit (v) hideMounts;
+              inherit (v) hideMounts trash;
             }
           ) v.entries
         ) (withPath (ucfg.keep or { }))

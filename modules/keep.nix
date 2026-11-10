@@ -35,6 +35,12 @@ let
           description = "Whether to hide the volume's mounts from file managers";
         };
 
+        trash = lib.mkOption {
+          type = types.bool;
+          default = false;
+          description = "Whether file managers can trash files inside the volume's directory mounts. Each mounted directory gets its own `.Trash-<uid>` directory";
+        };
+
         store = lib.mkOption {
           type = types.nullOr types.str;
           internal = true;

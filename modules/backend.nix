@@ -62,7 +62,11 @@ let
     what = "${prefix}${e.storePath}";
     where = "${prefix}${e.live}";
     type = "none";
-    options = lib.concatStringsSep "," ([ "bind" ] ++ lib.optional e.hideMounts "x-gvfs-hide");
+    options = lib.concatStringsSep "," (
+      [ "bind" ]
+      ++ lib.optional e.hideMounts "x-gvfs-hide"
+      ++ lib.optional (e.trash && e.kind == "dir") "x-gvfs-trash"
+    );
     unitConfig.DefaultDependencies = false;
   };
 

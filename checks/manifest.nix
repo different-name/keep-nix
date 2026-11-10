@@ -89,6 +89,7 @@ let
           }
         ];
         hideMounts = true;
+        trash = false;
       };
       keep.scratch = {
         store = "/scratch";
@@ -103,6 +104,7 @@ let
           }
         ];
         hideMounts = true;
+        trash = false;
       };
       programs.keep.exclude = [ ".cache/junk" ];
     };
